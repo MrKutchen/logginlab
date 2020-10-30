@@ -1,3 +1,6 @@
+import org.junit.Test;
+
+import java.awt.datatransfer.FlavorEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,6 +32,19 @@ public class LogginLabTest {
                 logger.log(Level.INFO, "Threshold finally reached!");
                 assertFalse(lab.thresholdExceeds(i));
             }
+        }
+    }
+    @Test
+    public void thresholdReachedTest() {
+        Integer finalLimit = 2;
+
+        LogginLab lab = new LogginLab();
+        if(lab.thresholdReached(finalLimit)) {
+            logger.log(Level.INFO, "false - Personal test created for lab");
+            assertTrue(lab.thresholdReached(finalLimit));
+        } else {
+            logger.log(Level.INFO, "true - Personal test created for lab");
+            assertFalse(lab.thresholdExceeds(finalLimit));
         }
     }
 }
